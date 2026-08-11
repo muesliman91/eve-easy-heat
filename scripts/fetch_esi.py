@@ -3,15 +3,31 @@ import requests
 
 NAHOL_ID = 30005069
 
-response = requests.get(
+# Jumps abrufen
+jumps = requests.get(
     "https://esi.evetech.net/latest/universe/system_jumps/"
+).json()
+
+nahol_jumps = next(
+    s for s in jumps
+    if s["system_id"] == NAHOL_ID
 )
 
-systems = response.json()
+# Kills abrufen
+kills = requests.get(
+    "https://esi.evetech.net/latest/universe/system_kills/"
+).json()
 
-nahol = next(
-    s for s in systems
-    if s["system_id"] == NAHOL_ID
+nahol_kills = next(
+    (
+        s for s in kills
+        if s["system_id"] == NAHOL_ID
+    ),
+    {
+        "npc_kills": 0,
+        "ship_kills": 0,
+        "pod_kills": 0
+    }
 )
 
 result = {
@@ -19,8 +35,12 @@ result = {
     "name": "Nahol",
     "security": 0.6,
     "region": "Kor-Azor",
+
     "activity": {
-        "jumps": nahol["ship_jumps"]
+        "jumps": nahol_jumps["ship_jumps"],
+        "npc_kills": nahol_kills["npc_kills"],
+        "ship_kills": nahol_kills["ship_kills"],
+        "pod_kills": nahol_kills["pod_kills"]
     }
 }
 
