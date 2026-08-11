@@ -22,7 +22,7 @@ jobs:
 
       - run: pip install requests
 
-      - run: python scripts/fetch.py
+      - run: python scripts/fetch_esi.py
 
       - run: |
           git config user.name "github-actions"
@@ -31,3 +31,5 @@ jobs:
           git add .
           git commit -m "daily update" || exit 0
           git push
+
+      - run: python scripts/build_system.py
