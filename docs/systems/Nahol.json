@@ -4,6 +4,6 @@
   "security": 0.6,
   "region": "Kor-Azor",
   "activity": {
-      "jumps": 100
+    "jumps": 25
   }
 }
