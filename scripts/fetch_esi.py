@@ -1,9 +1,17 @@
 import json
 import requests
+from datetime import datetime, timezone
+from pathlib import Path
 
 NAHOL_ID = 30005069
 
-# Jumps abrufen
+# Ordner für Snapshots erstellen
+Path("snapshots/nahol").mkdir(parents=True, exist_ok=True)
+
+# Aktuelle UTC-Zeit
+now = datetime.now(timezone.utc)
+
+# Jumps von ESI abrufen
 jumps = requests.get(
     "https://esi.evetech.net/latest/universe/system_jumps/"
 ).json()
@@ -13,7 +21,7 @@ nahol_jumps = next(
     if s["system_id"] == NAHOL_ID
 )
 
-# Kills abrufen
+# Kills von ESI abrufen
 kills = requests.get(
     "https://esi.evetech.net/latest/universe/system_kills/"
 ).json()
@@ -30,21 +38,20 @@ nahol_kills = next(
     }
 )
 
-result = {
-    "system_id": 30005069,
-    "name": "Nahol",
-    "security": 0.6,
-    "region": "Kor-Azor",
-
-    "activity": {
-        "jumps": nahol_jumps["ship_jumps"],
-        "npc_kills": nahol_kills["npc_kills"],
-        "ship_kills": nahol_kills["ship_kills"],
-        "pod_kills": nahol_kills["pod_kills"]
-    }
+# Ein Stunden-Snapshot
+snapshot = {
+    "timestamp": now.isoformat(),
+    "system_id": NAHOL_ID,
+    "jumps": nahol_jumps["ship_jumps"],
+    "npc_kills": nahol_kills["npc_kills"],
+    "ship_kills": nahol_kills["ship_kills"],
+    "pod_kills": nahol_kills["pod_kills"]
 }
 
-with open("docs/systems/Nahol.json", "w") as f:
-    json.dump(result, f, indent=2)
+# Dateiname pro Stunde
+filename = now.strftime("%Y-%m-%d-%H") + ".json"
 
-print(result)
+with open(f"snapshots/nahol/{filename}", "w") as f:
+    json.dump(snapshot, f, indent=2)
+
+print(snapshot)
