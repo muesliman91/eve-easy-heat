@@ -1,18 +1,13 @@
 {
   "system_id": 30005069,
   "name": "Nahol",
+  "security": 0.6,
+  "region": "Kor-Azor",
+
   "history": [
     {
       "date": "2026-08-11",
       "jumps": 100
-    },
-    {
-      "date": "2026-08-12",
-      "jumps": 120
-    },
-    {
-      "date": "2026-08-13",
-      "jumps": 80
     }
   ]
 }
