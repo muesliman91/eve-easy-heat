@@ -1,44 +1,26 @@
-<h1>EVE System Information</h1>
+document.getElementById("systemTable").innerHTML = `
+    <tr>
+        <th>System</th>
+        <td>${data.name}</td>
+    </tr>
 
-<table border="1">
-    <tbody id="systemTable"></tbody>
-</table>
+    <tr>
+        <th>System ID</th>
+        <td>${data.system_id}</td>
+    </tr>
 
-<script>
-fetch("systems/Nahol.json")
-    .then(r => r.json())
-    .then(data => {
+    <tr>
+        <th>Security</th>
+        <td>${data.security}</td>
+    </tr>
 
-        document.getElementById("systemTable").innerHTML = `
-            <tr>
-                <th>System</th>
-                <td>${data.name}</td>
-            </tr>
+    <tr>
+        <th>Region</th>
+        <td>${data.region}</td>
+    </tr>
 
-            <tr>
-                <th>System ID</th>
-                <td>${data.system_id}</td>
-            </tr>
-
-            <tr>
-                <th>Security</th>
-                <td>${data.security}</td>
-            </tr>
-
-            <tr>
-                <th>Region</th>
-                <td>${data.region}</td>
-            </tr>
-
-            <tr>
-                <th>Jumps</th>
-                <td>${data.activity.jumps}</td>
-            </tr>
-
-            <tr>
-                <th>Latest Jumps</th>
-                <td>${data.history[data.history.length - 1].jumps}</td>
-            </tr>
-        `;
-    });
-</script>
+    <tr>
+        <th>Jumps</th>
+        <td>${data.activity.jumps}</td>
+    </tr>
+`;
