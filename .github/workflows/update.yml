@@ -24,6 +24,8 @@ jobs:
 
       - run: python scripts/fetch_esi.py
 
+      - run: python scripts/build_system.py
+
       - run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -32,4 +34,4 @@ jobs:
           git commit -m "daily update" || exit 0
           git push
 
-      - run: python scripts/build_system.py
+     
