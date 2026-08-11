@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EVE Activity</title>
+    <title>EVE Activity</title>
+
+    https://cdn.jsdelivr.net/npm/chart.jsscript>
 </head>
+
 <body>
-  <h1>EVE Activity</h1>
+
+<h1>EVE Activity</h1>
+
+<canvas id="chart"></canvas>
+
+<script>
+
+fetch("activity.json")
+    .then(response => response.json())
+    .then(data => {
+
+        new Chart(
+            document.getElementById("chart"),
+            {
+                type: "line",
+                data: {
+                    labels: data.map(x => x.date),
+                    datasets: [{
+                        label: "Ship Jumps",
+                        data: data.map(x => x.jumps)
+                    }]
+                }
+            }
+        );
+
+    });
+
+</script>
+
 </body>
 </html>
-<canvas id="chart"></canvas>
-https://cdn.jsdelivr.net/npm/chart.jsscript>
-``
-fetch("activity.json")
