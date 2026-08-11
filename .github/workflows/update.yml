@@ -1,17 +1,29 @@
-- uses: actions/checkout@v4
+name: Update ESI Data
 
-- uses: actions/setup-python@v5
-  with:
-    python-version: "3.12"
+on:
+  workflow_dispatch:
 
-- run: pip install requests
+jobs:
+  update:
 
-- run: python scripts/fetch_esi.py
+    runs-on: ubuntu-latest
 
-- run: |
-    git config user.name "github-actions"
-    git config user.email "actions@github.com"
+    steps:
 
-    git add .
-    git commit -m "update esi" || exit 0
-    git push
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - run: python scripts/fetch_esi.py
+
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+          git add .
+          git commit -m "update esi" || exit 0
+          git push
