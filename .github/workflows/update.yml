@@ -1,21 +1,22 @@
-name: Update*ESI Data
+name: Update ESI Data
 
 on:
-  workflow_dispatch:*
+  workflow_dispatch:
+
   schedule:
     - cron: "0 * * * *"
 
 jobs:
   update:
 
-    runs-on: u*untu-latest
+    runs-on: ubuntu-latest
 
     steps:
 
-      - u*es: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - u*es: actions/setup-python@v5
-      * with:
+      - uses: actions/setup-python@v5
+        with:
           python-version: "3.12"
 
       - run: pip install requests
