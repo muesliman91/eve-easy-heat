@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <body>
 
 <h1>EVE System Information</h1>
@@ -15,87 +14,91 @@ fetch("systems/Nahol.json")
   .then(r => r.json())
   .then(data => {
 
-    d*cument.getElementById("systemTable*).innerHTML = `
-    <tr>
-        <*h>System</th>
-        <td>${data.n*me}</td>
-    </tr>
+    document.getElementById("systemTable").innerHTML = `
+      <tr>
+        <th>System</th>
+        <td>${data.name}</td>
+      </tr>
 
-    <tr>
-     *  <th>System ID</th>
-        <td>$*data.system_id}</td>
-    </tr>
+      <tr>
+        <th>System ID</th>
+        <td>${data.system_id}</td>
+      </tr>
 
-  * <tr>
+      <tr>
         <th>Security</th>
-  *     <td>${data.security}</td>
-   *</tr>
+        <td>${data.security}</td>
+      </tr>
 
-    <tr>
-        <th>Region*/th>
-        <td>${data.region}</t*>
-    </tr>
+      <tr>
+        <th>Region</th>
+        <td>${data.region}</td>
+      </tr>
 
-    <tr>
-        <th>*urrent Jumps</th>
-        <td>${da*a.current.jumps}</td>
-    </tr>
+      <tr>
+        <th>Current Jumps</th>
+        <td>${data.current.jumps}</td>
+      </tr>
 
- *  <tr>
-        <th>Current NPC Kil*s</th>
-        <td>${data.current.*pc_kills}</td>
-    </tr>
+      <tr>
+        <th>Current NPC Kills</th>
+        <td>${data.current.npc_kills}</td>
+      </tr>
 
-    <tr>*        <th>Current Ship Kills</th*
-        <td>${data.current.ship_k*lls}</td>
-    </tr>
+      <tr>
+        <th>Current Ship Kills</th>
+        <td>${data.current.ship_kills}</td>
+      </tr>
 
-    <tr>
-    *   <th>Current Pod Kills</th>
-    *   <td>${data.current.pod_kills}</*d>
-    </tr>
+      <tr>
+        <th>Current Pod Kills</th>
+        <td>${data.current.pod_kills}</td>
+      </tr>
 
-    <tr>
-        <th*24h Jumps</th>
-        <td>${data.*otals_24h.jumps}</td>
-    </tr>
+      <tr>
+        <th>24h Jumps</th>
+        <td>${data.totals_24h.jumps}</td>
+      </tr>
 
- *  <tr>
-        <th>24h NPC Kills</*h>
-        <td>${data.totals_24h.n*c_kills}</td>
-    </tr>
+      <tr>
+        <th>24h NPC Kills</th>
+        <td>${data.totals_24h.npc_kills}</td>
+      </tr>
 
-    <tr>
-*       <th>24h Ship Kills</th>
-   *    <td>${data.totals_24h.ship_kil*s}</td>
-    </tr>
+      <tr>
+        <th>24h Ship Kills</th>
+        <td>${data.totals_24h.ship_kills}</td>
+      </tr>
 
-    <tr>
-      * <th>24h Pod Kills</th>
-        <t*>${data.totals_24h.pod_kills}</td>*    </tr>
+      <tr>
+        <th>24h Pod Kills</th>
+        <td>${data.totals_24h.pod_kills}</td>
+      </tr>
 
-    <tr>
-        <th>7d*Jumps</th>
-        <td>${data.tota*s_7d.jumps}</td>
-    </tr>
+      <tr>
+        <th>7d Jumps</th>
+        <td>${data.totals_7d.jumps}</td>
+      </tr>
 
-    <t*>
+      <tr>
         <th>7d NPC Kills</th>
-  *     <td>${data.totals_7d.npc_kill*}</td>
-    </tr>
+        <td>${data.totals_7d.npc_kills}</td>
+      </tr>
 
-    <tr>
-       *<th>7d Ship Kills</th>
-        <td*${data.totals_7d.ship_kills}</td>
-*   </tr>
+      <tr>
+        <th>7d Ship Kills</th>
+        <td>${data.totals_7d.ship_kills}</td>
+      </tr>
 
-    <tr>
-        <th>7d *od Kills</th>
-        <td>${data.t*tals_7d.pod_kills}</td>
-    </tr>
-*    <tr>
-        <th>Snapshots Col*ected</th>
-        <td>${data.snap*
+      <tr>
+        <th>7d Pod Kills</th>
+        <td>${data.totals_7d.pod_kills}</td>
+      </tr>
+
+      <tr>
+        <th>Snapshots Collected</th>
+        <td>${data.snapshot_count}</td>
+      </tr>
     `;
   });
 
