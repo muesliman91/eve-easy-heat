@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EVE Activity</title>
+<script src="sdelivr.net/npm/chart.jsscript>
+</head>
+<body>
+
+<h1>EVE Activity</h1>
+
+<canvas id="chart"></canvas>
+
+<script>
+
+fetch("activity.json")
+.then(r => r.json())
+.then(data => {
+
+  new Chart(
+    document.getElementById('chart'),
+    {
+      type: 'line',
+      data: {
+        labels: data.map(x => x.date),
+        datasets: [{
+          label: 'Jumps',
+          data: data.map(x => x.jumps)
+        }]
+      }
+    }
+  )
+
+})
+
+</script>
+
+</body>
+</html>
