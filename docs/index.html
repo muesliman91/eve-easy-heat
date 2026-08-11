@@ -34,6 +34,11 @@ fetch("systems/Nahol.json")
                 <th>Jumps</th>
                 <td>${data.activity.jumps}</td>
             </tr>
+
+            <tr>
+                <th>Latest Jumps</th>
+                <td>${data.history[data.history.length - 1].jumps}</td>
+            </tr>
         `;
     });
 </script>
