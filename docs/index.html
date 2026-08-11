@@ -14,26 +14,25 @@
 <script>
 
 fetch("systems/Nahol.json")
-    .then(response => response.json())
-    .then(data => {
+.then(r => r.json())
+.then(data => {
 
-        new Chart(
-            document.getElementById("chart"),
-            {
-                type: "line",
-                data: {
-                    labels: data.map(x => x.date),
-                    datasets: [{
-                        label: "Ship Jumps",
-                        data: data.map(x => x.jumps),
-                        borderColor: "blue",
-                        fill: false
-                    }]
-                }
+    const history = data.history;
+
+    new Chart(
+        document.getElementById("chart"),
+        {
+            type: "line",
+            data: {
+                labels: history.map(x => x.date),
+                datasets: [{
+                    label: "Jumps",
+                    data: history.map(x => x.jumps)
+                }]
             }
-        );
-
-    });
+        }
+    );
+});
 
 </script>
 
