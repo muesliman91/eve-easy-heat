@@ -1,40 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>EVE Activity</title>
+<h1>EVE System Information</h1>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-
-<h1>EVE Activity</h1>
-
-<canvas id="chart"></canvas>
+<table border="1">
+    <tbody id="systemTable"></tbody>
+</table>
 
 <script>
-
 fetch("systems/Nahol.json")
-.then(r => r.json())
-.then(data => {
+    .then(r => r.json())
+    .then(data => {
 
-    const history = data.history;
+        document.getElementById("systemTable").innerHTML = `
+            <tr>
+                <th>System</th>
+                <td>${data.name}</td>
+            </tr>
 
-    new Chart(
-        document.getElementById("chart"),
-        {
-            type: "line",
-            data: {
-                labels: history.map(x => x.date),
-                datasets: [{
-                    label: "Jumps",
-                    data: history.map(x => x.jumps)
-                }]
-            }
-        }
-    );
-});
+            <tr>
+                <th>System ID</th>
+                <td>${data.system_id}</td>
+            </tr>
 
+            <tr>
+                <th>Security</th>
+                <td>${data.security}</td>
+            </tr>
+
+            <tr>
+                <th>Region</th>
+                <td>${data.region}</td>
+            </tr>
+        `;
+    });
 </script>
-
-</body>
-</html>
