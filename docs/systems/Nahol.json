@@ -4,10 +4,5 @@
   "security": 0.6,
   "region": "Kor-Azor",
 
-  "history": [
-    {
-      "date": "2026-08-11",
-      "jumps": 100
-    }
-  ]
-}
+  "activity": {
+   
