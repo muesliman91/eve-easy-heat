@@ -3,9 +3,8 @@
 <head>
     <title>EVE Activity</title>
 
-    https://cdn.jsdelivr.net/npm/chart.jsscript>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
 <h1>EVE Activity</h1>
@@ -27,7 +26,8 @@ fetch("activity.json")
                     datasets: [{
                         label: "Ship Jumps",
                         data: data.map(x => x.jumps),
-                        borderColor: "blue"
+                        borderColor: "blue",
+                        fill: false
                     }]
                 }
             }
@@ -39,4 +39,3 @@ fetch("activity.json")
 
 </body>
 </html>
-``
