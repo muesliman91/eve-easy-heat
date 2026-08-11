@@ -26,7 +26,8 @@ fetch("activity.json")
                     labels: data.map(x => x.date),
                     datasets: [{
                         label: "Ship Jumps",
-                        data: data.map(x => x.jumps)
+                        data: data.map(x => x.jumps),
+                        borderColor: "blue"
                     }]
                 }
             }
@@ -38,3 +39,4 @@ fetch("activity.json")
 
 </body>
 </html>
+``
