@@ -1,26 +1,49 @@
-document.getElementById("systemTable").innerHTML = `
-    <tr>
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>EVE System Information</h1>
+
+<table border="1">
+    <tbody id="systemTable"></tbody>
+</table>
+
+<script>
+
+fetch("systems/Nahol.json")
+  .then(r => r.json())
+  .then(data => {
+
+    document.getElementById("systemTable").innerHTML = `
+      <tr>
         <th>System</th>
         <td>${data.name}</td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <th>System ID</th>
         <td>${data.system_id}</td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <th>Security</th>
         <td>${data.security}</td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <th>Region</th>
         <td>${data.region}</td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <th>Jumps</th>
         <td>${data.activity.jumps}</td>
-    </tr>
-`;
+      </tr>
+    `;
+  });
+
+</script>
+
+</body>
+</html>
