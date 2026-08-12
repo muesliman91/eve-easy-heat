@@ -4,31 +4,53 @@ on:
   workflow_dispatch:
 
   schedule:
+    - cron: "17 * * * *"
     - cron: "47 * * * *"
 
 jobs:
   update:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - run: pip install requests
+      - name: Install dependencies
+        run: pip install requests
 
-      - run: python scripts/fetch_esi.py
+      - name: Heartbeat
+        run: |
+          mkdir -p diagnostics
 
-      - run: python scripts/build_system.py
+          echo "----------------------------------------" >> diagnostics/runs.log
+          echo "UTC Time: $(date -u)" >> diagnostics/runs.log
+          echo "Event: ${{ github.event_name }}" >> diagnostics/runs.log
+          echo "Run ID: ${{ github.run_id }}" >> diagnostics/runs.log
 
-      - run: |
+      - name: Fetch ESI data
+        run: python scripts/fetch_esi.py
+
+      - name: Build system
+        run: python scripts/build_system.py
+
+      - name: Show git status
+        run: |
+          git status
+          git diff --stat || true
+
+      - name: Commit changes
+        run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
           git add .
+
           git commit -m "update esi snapshots" || exit 0
+          
+          git push
+          git commit -m "update esi snapshots" || exit 0
+
           git push
