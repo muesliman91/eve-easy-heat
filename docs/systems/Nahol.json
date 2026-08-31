@@ -10,16 +10,16 @@
     "pod_kills": 0
   },
   "totals_24h": {
-    "jumps": 975,
-    "npc_kills": 699,
+    "jumps": 966,
+    "npc_kills": 804,
     "ship_kills": 0,
     "pod_kills": 0
   },
   "totals_7d": {
-    "jumps": 3069,
-    "npc_kills": 2646,
+    "jumps": 3091,
+    "npc_kills": 2755,
     "ship_kills": 0,
     "pod_kills": 0
   },
-  "snapshot_count": 275
+  "snapshot_count": 276
 }
