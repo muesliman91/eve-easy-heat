@@ -5,19 +5,19 @@
   "region": "Kor-Azor",
   "current": {
     "jumps": 33,
-    "npc_kills": 20,
+    "npc_kills": 24,
     "ship_kills": 0,
     "pod_kills": 0
   },
   "totals_24h": {
     "jumps": 859,
-    "npc_kills": 518,
+    "npc_kills": 522,
     "ship_kills": 0,
     "pod_kills": 0
   },
   "totals_7d": {
-    "jumps": 7536,
-    "npc_kills": 6502,
+    "jumps": 7487,
+    "npc_kills": 6491,
     "ship_kills": 14,
     "pod_kills": 2
   },
