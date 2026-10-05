@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-10-05T22:41:51.431848+00:00",
+  "timestamp": "2026-10-05T22:54:56.737158+00:00",
   "system_id": 30005069,
-  "jumps": 26,
-  "npc_kills": 3,
-  "ship_kills": 0,
+  "jumps": 25,
+  "npc_kills": 39,
+  "ship_kills": 1,
   "pod_kills": 0
 }
