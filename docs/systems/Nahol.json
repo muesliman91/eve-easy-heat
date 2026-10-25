@@ -4,22 +4,22 @@
   "security": 0.6,
   "region": "Kor-Azor",
   "current": {
-    "jumps": 76,
-    "npc_kills": 61,
+    "jumps": 43,
+    "npc_kills": 89,
     "ship_kills": 0,
     "pod_kills": 0
   },
   "totals_24h": {
-    "jumps": 644,
-    "npc_kills": 2324,
-    "ship_kills": 1,
+    "jumps": 582,
+    "npc_kills": 2096,
+    "ship_kills": 0,
     "pod_kills": 0
   },
   "totals_7d": {
-    "jumps": 2753,
-    "npc_kills": 9102,
+    "jumps": 2758,
+    "npc_kills": 9091,
     "ship_kills": 2,
     "pod_kills": 1
   },
-  "snapshot_count": 922
+  "snapshot_count": 923
 }
